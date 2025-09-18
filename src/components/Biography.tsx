@@ -14,8 +14,8 @@ function Biography() {
     <Tabs defaultActiveTab="About Me">
       {/* About Me Tab */}
       <Tab title="About Me">
-        <h3>Hello, I am Kevin Lam (林怡滉) 🐒</h3>
         <Avatar src="./src/assets/bio/self.png" size="400px" />
+        <h2>Hello, I am Kevin Lam (林怡滉) 🐒</h2>
 
         <p>Fullstack Developer in the works</p>
         <Fieldset legend="My Journey So Far">
