@@ -2,8 +2,10 @@ import { AGENTS, ClippyProvider } from "@react95/clippy";
 import { setAuth } from "./hooks/auth";
 import Login from "./components/Login";
 import DesktopIcon from "./components/DesktopIcon";
-import { Amovie2 } from "@react95/icons";
+import { Amovie2, Bookmark, Inetcpl1313, MediaAudio } from "@react95/icons";
 import { Video } from "@react95/core";
+import WindowBar from "./components/WindowBar";
+import Biography from "./components/Biography";
 
 function App() {
   const authenticated = setAuth((state)=>state.authenticated);
@@ -19,10 +21,21 @@ function App() {
           <ClippyProvider agentName={AGENTS.BONZI}>
             <div className="fixed">
               {/* Desktop Icons */}
-              <DesktopIcon icon={<Amovie2/>} name="video">
-                <Video   w={"420px"} src="keyboardcat.mp4" name="Keyboard Cat"/>
+              <DesktopIcon icon={<Amovie2/>} name="PianoCat.mp4">
+                <Video w={"420px"} src="keyboardcat.mp4" name="Keyboard Cat"/>
+              </DesktopIcon>
+              <DesktopIcon icon={<Inetcpl1313/>} name="Browser">
+                <iframe title="browser" src="https://swisscows.com" style={{border:"none", width:"800px", height:"500px"}}/>
+              </DesktopIcon>
+              <DesktopIcon icon={<Bookmark variant="32x32_4"/>} name="Biography">
+                <Biography/>
+              </DesktopIcon>
+              <DesktopIcon icon={<MediaAudio variant="32x32_4"/>} name="Music Player">
+                <iframe title="browser" src="https://open.spotify.com/embed/track/3BeRfdDva5tTPCHPYBaGlA" style={{border:"none", width:"800px", height:"352px"}}/>
+                <iframe title="browser" src="https://open.spotify.com/embed/track/0BISTkoIhYq46qtRRVjLvn" style={{border:"none", width:"800px", height:"352px"}}/>
               </DesktopIcon>
             </div>
+            <WindowBar/>
           </ClippyProvider>
         )
       }
