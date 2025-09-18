@@ -2,7 +2,6 @@ import React, { type ComponentType } from 'react'
 import { setAuth } from '../hooks/auth'
 import { Input, Modal, TitleBar } from '@react95/core';
 import { Keys } from '@react95/icons';
-import { MdMargin } from 'react-icons/md';
 
 function Login() {
     const login = setAuth((state)=>state.login);

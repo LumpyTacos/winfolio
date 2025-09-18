@@ -1,6 +1,9 @@
 import { AGENTS, ClippyProvider } from "@react95/clippy";
 import { setAuth } from "./hooks/auth";
 import Login from "./components/Login";
+import DesktopIcon from "./components/DesktopIcon";
+import { Amovie2 } from "@react95/icons";
+import { Video } from "@react95/core";
 
 function App() {
   const authenticated = setAuth((state)=>state.authenticated);
@@ -16,7 +19,9 @@ function App() {
           <ClippyProvider agentName={AGENTS.BONZI}>
             <div className="fixed">
               {/* Desktop Icons */}
-
+              <DesktopIcon icon={<Amovie2/>} name="video">
+                <Video   w={"420px"} src="keyboardcat.mp4" name="Keyboard Cat"/>
+              </DesktopIcon>
             </div>
           </ClippyProvider>
         )
