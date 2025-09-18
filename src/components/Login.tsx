@@ -1,4 +1,4 @@
-import React, { type ComponentType } from 'react'
+import { type ComponentType } from 'react'
 import { setAuth } from '../hooks/auth'
 import { Input, Modal, TitleBar } from '@react95/core';
 import { Keys } from '@react95/icons';

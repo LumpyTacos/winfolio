@@ -75,6 +75,9 @@
 .gap-x-4              { column-gap: 1rem; }
 .gap-y-4              { row-gap: 1rem; }
 
+/* Biography Skills List */
+.resume-skills { line-height: 1.5; }
+
 /* Font Style and Format */
 @font-face {
   font-family: "MS Sans Serif";

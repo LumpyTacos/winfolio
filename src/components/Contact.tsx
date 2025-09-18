@@ -1,4 +1,3 @@
-import React from 'react'
 import { Frame, List } from '@react95/core'
 import { Mail } from '@react95/icons'
 import { FaGithub, FaLinkedin } from 'react-icons/fa'

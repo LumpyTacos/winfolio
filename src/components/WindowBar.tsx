@@ -8,7 +8,7 @@ import Shutdown from './Shutdown';
 function Clock() {
     const [time, setTime] = React.useState(new Date());
     useEffect(() => {
-        const timer = setInterval(() => setTimeout(new Date()), 1000);
+        const timer = setInterval(() => setTime(new Date()), 1000);
         return () => clearInterval(timer);
     },[]);
 
