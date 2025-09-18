@@ -1,7 +1,7 @@
-import { Button, Fieldset, Modal, RadioButton, TitleBar } from '@react95/core';
 import React, { type ComponentType } from 'react'
+import { Button, Fieldset, Modal, RadioButton, TitleBar } from '@react95/core';
 import { setAuth } from '../hooks/auth';
-import { Computer3, Hand } from '@react95/icons';
+import { Computer3 } from '@react95/icons';
 
 type ShutdownOptions = "shutdown" | "restart" | "restart-incompatible";
 

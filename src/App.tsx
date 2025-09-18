@@ -2,10 +2,11 @@ import { AGENTS, ClippyProvider } from "@react95/clippy";
 import { setAuth } from "./hooks/auth";
 import Login from "./components/Login";
 import DesktopIcon from "./components/DesktopIcon";
-import { Amovie2, Bookmark, Inetcpl1313, MediaAudio } from "@react95/icons";
+import { Amovie2, Bookmark, Inetcpl1313, Mail, MediaAudio } from "@react95/icons";
 import { Video } from "@react95/core";
 import WindowBar from "./components/WindowBar";
 import Biography from "./components/Biography";
+import Contact from "./components/Contact";
 
 function App() {
   const authenticated = setAuth((state)=>state.authenticated);
@@ -33,6 +34,9 @@ function App() {
               <DesktopIcon icon={<MediaAudio variant="32x32_4"/>} name="Music Player">
                 <iframe title="browser" src="https://open.spotify.com/embed/track/3BeRfdDva5tTPCHPYBaGlA" style={{border:"none", width:"800px", height:"352px"}}/>
                 <iframe title="browser" src="https://open.spotify.com/embed/track/0BISTkoIhYq46qtRRVjLvn" style={{border:"none", width:"800px", height:"352px"}}/>
+              </DesktopIcon>
+              <DesktopIcon icon={<Mail/>} name="Contact">
+                <Contact/>
               </DesktopIcon>
             </div>
             <WindowBar/>
