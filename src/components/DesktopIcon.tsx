@@ -67,22 +67,27 @@ const styles = {
 } as const;
 
 interface WindowsProps {
-    icon: ReactElement<{variant?:string}>;
-    title: string;
-    children: ReactNode;
-    width?: number;
-    height?: number;
-    onClose: ()=>void;
+  icon: ReactElement<{variant?:string}>;
+  title: string;
+  children: ReactNode;
+  width: number;
+  height: number;
+  isMaximized: boolean;
+  close: () => void;
+  maximize: () => void;
 }
 
-const Window = ({icon,title,children,width,height,onClose}:WindowsProps) => {
+const Window = ({icon,title,children,width,height,isMaximized,close,maximize}:WindowsProps) => {
     const { minimize } = useModal();
     return (
-        <SafeModal id={title} icon={icon} title={title} titleBarOptions={[<TitleBar.Minimize style={{marginBlock:"auto"}} key={"minimize"} onClick={()=>minimize(title)}/>, <TitleBar.Close style={{marginBlock:"auto"}} key={"close"} onClick={onClose}/>]}>
-            <Modal.Content width={`${width}px`} height={`${height}px`} boxShadow="$in">
+      <SafeModal id={title} icon={icon} title={title} titleBarOptions={[
+        <TitleBar.Minimize style={{marginBlock:"auto"}} key={"minimize"} onClick={()=>minimize(title)}/>,
+        <TitleBar.Maximize style={{marginBlock:"auto"}} key={"maximize"} onClick={maximize}/>,
+        <TitleBar.Close style={{marginBlock:"auto"}} key={"close"} onClick={close}/>]}>
+            <Modal.Content width={isMaximized ? '100%' : `${width}px`} height={isMaximized ? '100%' : `${height}px`} boxShadow="$in">
                 {children}
             </Modal.Content>
-        </SafeModal>
+      </SafeModal>
     )
 }
 
@@ -90,17 +95,17 @@ interface DesktopIconProps {
     icon: ReactElement<{variant?:string}>;
     name: string;
     children: ReactNode;
-    width?: number;
-    height?: number;
 }
 
-function DesktopIcon({icon,name,children,width,height}:DesktopIconProps) {
-  const {openWindow, closeWindow, isWindowOpen} = useWindows();
+function DesktopIcon({icon,name,children}:DesktopIconProps) {
+  const { openWindow, closeWindow, isWindowOpen, openWindows, toggleMaximize } = useWindows();
 
+  const windowState = openWindows.find(w => w.title === name);
   const isOpen = isWindowOpen(name);
 
   function handleDoubleClick() { openWindow(name); }
   function handleclose() { closeWindow(name); }
+  function handleMaximize() { toggleMaximize(name); }
 
   return (
     <>
@@ -109,9 +114,9 @@ function DesktopIcon({icon,name,children,width,height}:DesktopIconProps) {
             <p style={styles.iconName}>{name}</p>
         </div>
         {
-            isOpen && (
+            isOpen && windowState && (
                 // Window component
-                <Window width={width} height={height} title={name} onClose={handleclose} icon={React.cloneElement(icon,{variant:"16x16_4"})}>
+                <Window icon={React.cloneElement(icon,{variant:"16x16_4"})} title={name} width={windowState.width} height={windowState.height} isMaximized={windowState.isMaximized} close={handleclose} maximize={handleMaximize}>
                     {children}
                 </Window>
             )

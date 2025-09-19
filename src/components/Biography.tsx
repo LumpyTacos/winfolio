@@ -14,7 +14,7 @@ function Biography() {
     <Tabs defaultActiveTab="About Me">
       {/* About Me Tab */}
       <Tab title="About Me">
-        <Avatar src="./src/assets/bio/self.png" size="400px" />
+        <Avatar src=".\src\assets\bio\self.png" size="400px" alt="ME"/>
         <h2>Hello, I am Kevin Lam (林怡滉) 🐒</h2>
 
         <p>Fullstack Developer in the works</p>

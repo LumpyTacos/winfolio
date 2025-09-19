@@ -15,7 +15,7 @@ function App() {
       {/* Display login page if the user is unauthenticated */}
       <img src="logo.png" width={400} style={{position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)'}} />
 
-      {/* Displat desktop portfolio if the user is authenticated */}
+      {/* Display desktop portfolio if the user is authenticated */}
       {!authenticated && <Login/>}
       {
         authenticated && (
